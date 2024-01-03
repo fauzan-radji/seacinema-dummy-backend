@@ -1,0 +1,29 @@
+{
+  "name": "dummy-backend",
+  "version": "1.0.0",
+  "description": "This is a dummy backend for seacinema app",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "seed": "node seeder/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fauzan-radji/seacinema-dummy-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fauzan-radji/seacinema-dummy-backend/issues"
+  },
+  "homepage": "https://github.com/fauzan-radji/seacinema-dummy-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "json-modelizer": "^1.0.7"
+  }
+}
