@@ -18,4 +18,12 @@ export default class MovieResponse {
       data: movies,
     };
   }
+
+  static detail(movie) {
+    return {
+      statusCode: 200,
+      message: `Success Get Movie id : ${movie.id} Details`,
+      data: movie,
+    };
+  }
 }

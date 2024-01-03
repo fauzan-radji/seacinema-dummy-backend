@@ -20,4 +20,11 @@ export default class MovieController {
 
     return res.status(200).json(MovieResponse.search(movies));
   }
+
+  static detail(req, res) {
+    const id = +req.params.id;
+    const movie = Movie.find(id);
+
+    return res.status(200).json(MovieResponse.detail(movie));
+  }
 }

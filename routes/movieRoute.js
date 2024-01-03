@@ -4,6 +4,19 @@ import { MovieController } from "../controller/index.js";
 
 export default (Route) => {
   Route.get({
+    description: "Get movie by id",
+    path: "/movies/:id",
+    callback: MovieController.detail,
+    body: {},
+    query: {},
+    headers: {},
+    responses: {
+      success: MovieResponse.detail(Movie.first()),
+      error: ErrorResponse.create("Not Found"),
+    },
+  });
+
+  Route.get({
     description: "Get all movies",
     path: "/movies",
     callback: MovieController.all,
