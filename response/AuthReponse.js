@@ -7,4 +7,12 @@ export default class AuthResponse {
       token: user.token,
     };
   }
+
+  static register(user) {
+    return {
+      statusCode: 201,
+      message: "User Created",
+      data: user,
+    };
+  }
 }

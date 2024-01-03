@@ -3,7 +3,6 @@ import { ErrorResponse, AuthResponse } from "../response/index.js";
 import { AuthController } from "../controller/index.js";
 
 export default (Route) => {
-  // http://localhost:3000/api/v1/auth/signin
   Route.post({
     description: "Login user",
     path: "/auth/signin",
@@ -16,6 +15,25 @@ export default (Route) => {
     headers: {},
     responses: {
       success: AuthResponse.login(User.first()),
+      error: ErrorResponse.create("User not found"),
+    },
+  });
+
+  Route.post({
+    description: "Register user",
+    path: "/auth/signup",
+    callback: AuthController.register,
+    body: {
+      username: "string",
+      email: "string",
+      hash: "string",
+      birth: "string",
+      name: "string",
+    },
+    query: {},
+    headers: {},
+    responses: {
+      success: AuthResponse.register(User.first()),
       error: ErrorResponse.create("User not found"),
     },
   });

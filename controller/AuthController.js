@@ -16,4 +16,33 @@ export default class AuthController {
 
     return res.status(200).json(AuthResponse.login(user));
   }
+
+  static register(req, res) {
+    const { username, email, hash, birth, name } = req.body;
+
+    const user = User.create({
+      username,
+      email,
+      password: hash,
+      birth,
+      age: 20,
+      name,
+      token: generateToken(64),
+    });
+
+    return res.status(200).json(AuthResponse.register(user));
+  }
+}
+
+function generateToken(length) {
+  let result = "";
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const charactersLength = characters.length;
+
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+
+  return result;
 }
