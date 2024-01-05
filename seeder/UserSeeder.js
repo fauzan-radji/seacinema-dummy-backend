@@ -13,9 +13,9 @@ User.create({
 });
 
 User.create({
-  name: "Hanif",
-  username: "hanif",
-  email: "hanif@email.com",
+  name: "Fazrul",
+  username: "fazrul",
+  email: "fazrul@email.com",
   password: "12345678",
   birth: "2003-03-02",
   age: 20,

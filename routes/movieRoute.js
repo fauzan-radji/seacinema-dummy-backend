@@ -14,7 +14,7 @@ export default (Route) => {
     },
     headers: {},
     responses: {
-      success: MovieResponse.all(Movie.all()),
+      success: MovieResponse.all(Movie.all().slice(0, 6)),
       error: ErrorResponse.create("Not Found"),
     },
   });
@@ -29,7 +29,9 @@ export default (Route) => {
     },
     headers: {},
     responses: {
-      success: MovieResponse.search(Movie.all()),
+      success: MovieResponse.search(
+        Movie.all().filter((movie) => movie.title.toLowerCase().includes("av"))
+      ),
       error: ErrorResponse.create("Not Found"),
     },
   });

@@ -34,7 +34,7 @@ export default (Route) => {
     headers: {},
     responses: {
       success: AuthResponse.register(User.first()),
-      error: ErrorResponse.create("User not found"),
+      error: ErrorResponse.create("Cannot create user"),
     },
   });
 };
