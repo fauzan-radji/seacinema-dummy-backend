@@ -26,4 +26,18 @@ export default class MovieResponse {
       data: movie,
     };
   }
+
+  static seat(movie) {
+    return {
+      statusCode: 200,
+      message: `Success Get MovieId ${movie.id} seats`,
+      data: {
+        ...movie,
+        seats: [
+          { id: 4, seatNumber: 4, isBook: true },
+          { id: 5, seatNumber: 5, isBook: true },
+        ],
+      },
+    };
+  }
 }

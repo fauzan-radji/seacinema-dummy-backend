@@ -27,4 +27,11 @@ export default class MovieController {
 
     return res.status(200).json(MovieResponse.detail(movie));
   }
+
+  static seat(req, res) {
+    const id = +req.params.id;
+    const movie = Movie.find(id);
+
+    return res.status(200).json(MovieResponse.seat(movie));
+  }
 }

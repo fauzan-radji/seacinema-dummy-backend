@@ -4,19 +4,6 @@ import { MovieController } from "../controller/index.js";
 
 export default (Route) => {
   Route.get({
-    description: "Get movie by id",
-    path: "/movies/:id",
-    callback: MovieController.detail,
-    body: {},
-    query: {},
-    headers: {},
-    responses: {
-      success: MovieResponse.detail(Movie.first()),
-      error: ErrorResponse.create("Not Found"),
-    },
-  });
-
-  Route.get({
     description: "Get all movies",
     path: "/movies",
     callback: MovieController.all,
@@ -43,6 +30,32 @@ export default (Route) => {
     headers: {},
     responses: {
       success: MovieResponse.search(Movie.all()),
+      error: ErrorResponse.create("Not Found"),
+    },
+  });
+
+  Route.get({
+    description: "Get movie by id",
+    path: "/movies/:id",
+    callback: MovieController.detail,
+    body: {},
+    query: {},
+    headers: {},
+    responses: {
+      success: MovieResponse.detail(Movie.first()),
+      error: ErrorResponse.create("Not Found"),
+    },
+  });
+
+  Route.get({
+    description: "Get seats by movie id",
+    path: "/tickets/seat/:id",
+    callback: MovieController.seat,
+    body: {},
+    query: {},
+    headers: {},
+    responses: {
+      success: MovieResponse.seat(Movie.first()),
       error: ErrorResponse.create("Not Found"),
     },
   });
